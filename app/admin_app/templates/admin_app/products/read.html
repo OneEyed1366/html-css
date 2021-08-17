@@ -1,0 +1,31 @@
+{% extends 'admin_app/blocks/base.html' %}
+{% load static %}
+
+{% block body %}
+<div class="dashboard">
+    <div class="dashboard__item">
+        {% if product.hero %}
+        <div class="card">
+            <img src="{{ product.hero.url }}" alt="{{ product.title }}">
+        </div>
+        {% endif %}
+        <div class="card">
+            <strong>
+                Цена:
+            </strong>
+            {{ product.price }}
+        </div>
+        <div class="card">
+            <strong>Описание: </strong>
+            {{ product.desc }}
+        </div>
+        <div class="card">
+            <button>
+                <a href="{% url 'admin:products:index' pk=product.category.pk %}">
+                    Назад к списку товаров
+                </a>
+            </button>
+        </div>
+    </div>
+</div>
+{% endblock body %}

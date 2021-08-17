@@ -1,0 +1,73 @@
+{% extends 'blocks/base.html' %}
+{% load static %}
+
+{% block body %}
+<div class="hero-white">
+    <div class="header clearfix">
+        {% include 'blocks/components/navs.html' with data=cart %}
+        <a href="#" class="basket"></a>
+    </div>
+</div>
+<div class="details">
+    <div class="links clearfix">
+        {% include 'blocks/components/cat-list.html' with datas=cat_list %}
+    </div>
+    <div class="details-products">
+        <a href="#">
+            <div class="details-slider">
+                <div class="slider-product">
+                    <img src="{{ data.hero.url }}">
+                </div>
+                <div class="slider-control">
+                    {% for img in data.imgs.all %}
+                    <div class="block">
+                        <a href="#">
+                            <img src="{{ img.img.url }}" alt="">
+                            <div class="text"></div>
+                        </a>
+                    </div>
+                    {% endfor %}
+                </div>
+            </div>
+        </a>
+        <div class="description">
+            <h3 class="big-bold">{{ data.desc }}</h3>
+            <h3 class="red">горячее предложение</h3>
+            <p class="price"> {{ data.price }} <span>руб</span></p>
+            <a href="{% url 'shoppingCart_app:add' data.pk %}" class="red-button">
+                заказать <i class="fa fa-chevron-right" aria-hidden="true"></i>
+            </a>
+            <div class="description-text">
+                <p>Расположитесь комфортно.</p> 
+                <p>Отличное качество материалов
+                позволит вам это.</p> 
+                <p>Различные цвета</p>
+                <p>высочайший уровень
+                эргономики и прочность.</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- <div class="related">
+        <div class="title clearfix">
+            <h2>Похожие продукты</h2>
+            <a class="explore" href="#">показать все <img src="{% static 'main/img/arrow.png' %}" alt=""></a>
+        </div>
+        <div class="related-products clearfix">
+            {% for similar in similars %}
+                <div class="block">
+                    <a href="{% url 'main_app:products-selected' pk=product.pk %}">
+                        <img src="{{ similar.hero.url }}" alt="">
+                        <div class="text">
+                            <img src="{% static 'main/img/icon-hover.png' %}" alt="img">
+                            <h4>{{ i.title }}</h4>
+                            <p>{{ similar.desc }}</p>
+                        </div>
+                    </a>
+                </div>
+            {% endfor %}
+        </div>
+    </div> -->
+</div>
+<div class="clr"></div>
+{% endblock body %}

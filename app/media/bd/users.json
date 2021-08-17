@@ -1,0 +1,26 @@
+{
+    "1": {
+        "username": "OneEyed1366",
+        "password": "12344",
+        "email": "prokar41@mail.ru",
+        "first_name": "Прокопенко Андрей Иванович",
+        "desc": "Студент GeekBrains по курсу 'Основы Django Framework'",
+        "age": "25"
+    },
+    "2": {
+        "username": "ChocolateDoggy",
+        "password": "chokolateyWinForever",
+        "email": "chokolateyDoggy@gmail.com",
+        "first_name": "Серафима",
+        "desc": "Лучшая сестрича студента GeekBrains Прокопенко А.И.",
+        "age": "7"
+    },
+    "3": {
+        "username": "NinjaMinjaCat",
+        "password": "IiiitsLeto!",
+        "email": "Ninja-cool-cat@yandex.ru",
+        "first_name": "Лето",
+        "desc": "Новый член семьи студента GeekBrains Прокопенко А.И.",
+        "age": "1"
+    }
+}

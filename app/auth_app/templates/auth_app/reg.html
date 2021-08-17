@@ -1,0 +1,18 @@
+{% extends 'auth_app/blocks/base.html' %}
+{% load static %}
+
+{% block body %}
+<div class="content">
+    <div class="content__flippr"></div>
+    <div class="content__front"></div>
+    <div class="content__back"></div>
+    <h1>Пожалуйста, введите необходимую для регистрации информацию</h1>
+    <form class="content__form" action="" method="post" id="isReg"
+        action="{% url 'auth:register' %}"
+    >
+        {% csrf_token %}
+        {{ register_form.as_p }}
+        {% include 'auth_app/blocks/components/form-btns.html' with text='Зарегистрироваться' %}
+    </form>
+</div>
+{% endblock body %}

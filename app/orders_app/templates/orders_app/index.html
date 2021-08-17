@@ -1,0 +1,11 @@
+{% extends 'orders_app/blocks/base.html' %}
+{% load static %}
+
+{% block main %}
+<div id="test1" class="test">
+    <h2>Hekko, world!</h2>
+</div>
+{% endblock main %}
+{% block scripts %}
+<script src="{% static 'orders_app/js/test.js' %}"></script>
+{% endblock scripts %}

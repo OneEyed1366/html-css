@@ -1,0 +1,25 @@
+{% extends 'admin_app/blocks/base.html' %}
+{% load static %}
+
+{% block body %}
+<div class="dashboard">
+    <div class="dashboard__item">
+        <div class="card">
+            <strong>Общее число пользователей: </strong>
+            {{ users }}
+        </div>
+    </div>
+    <div class="dashboard__item">
+        <div class="card">
+            <strong>Общее число товаров: </strong>
+            {{ products }}
+        </div>
+    </div>
+    <div class="dashboard__item">
+        <div class="card">
+            <strong>Общее число категорий: </strong>
+            {{ categories }}
+        </div>
+    </div>
+</div>
+{% endblock body %}

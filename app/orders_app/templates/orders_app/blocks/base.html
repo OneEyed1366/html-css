@@ -1,0 +1,29 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Заказы</title>
+    <link rel="stylesheet" href="{% static 'orders_app/styles/styles.min.css' %}">
+</head>
+<body>
+    <header>
+        {% block header %}
+        <h2>There is some cooolest header!</h2>
+        {% endblock header %}
+    </header>
+    <main>
+        {% block main %}
+        <h2>There is some cool main block</h2>
+        {% endblock main %}
+    </main>
+    <!-- Подключаем react -->
+    <script crossorigin src="https://unpkg.com/react@16/umd/react.production.min.js"></script>
+    <script crossorigin src="https://unpkg.com/react-dom@16/umd/react-dom.production.min.js"></script>
+    {% block scripts %}
+    {% endblock scripts %}
+</body>
+</html>

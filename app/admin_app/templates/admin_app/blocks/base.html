@@ -1,0 +1,36 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>Магазин</title>
+	<link rel="stylesheet" type="text/css" href="{% static 'admin_app/css/index.css' %}">
+</head>
+<body>
+    <div class="admin">
+        <header class="admin__header">
+            <a href="{% url 'admin:index' %}" class="logo">
+            <h1>Админ.Панель</h1>
+            </a>
+            <div class="toolbar">
+            <button class="btn btn--primary">
+                <a href="/">
+                    Вернуться к сайту
+                </a>
+            </button>
+            <a href="{% url 'auth:logout' %}" class="logout">
+                Выйти
+            </a>
+            </div>
+        </header>
+        {% include 'admin_app/blocks/components/navs.html' %}
+        <main class="admin__main">
+            <h2>{% if title %} {{ title }} {% else %} Панель управления {% endif %}</h2>
+            {% block body %}
+                There is some Aaaaawesome content!
+            {% endblock body %}
+        </main>
+    </div>
+</body>
+</html>

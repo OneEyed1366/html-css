@@ -1,0 +1,27 @@
+{% extends 'auth_app/blocks/base.html' %}
+{% load static %}
+
+{% block body %}
+<div class="content">
+    <div class="content__container" id='flippr'>
+        <div class="content__flipper">
+        <div class="content__front"></div>
+        <div class="content__back"></div>
+        </div>
+    </div>
+    
+    <h1 class="text" id="welcome">Привествую! <span>Пожалуйста, авторизируйтесь</span></h1>
+    
+    <form method='post' id="theForm"
+        action="{% url 'auth:login' %}"
+    >
+        {% csrf_token %}
+        <input type='text' id="username" name='username' placeholder='Имя пользователя'>
+        <input type='password' id='password' name='password' placeholder='Пароль'>
+        
+        <div class='content__login'>
+        {% include 'auth_app/blocks/components/form-btns.html' with text='Войти' %}
+        </div><!-- /login -->
+    </form>
+</div>
+{% endblock body %}

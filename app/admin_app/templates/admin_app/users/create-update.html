@@ -1,0 +1,15 @@
+{% extends 'admin_app/blocks/base.html' %}
+{% load static %}
+
+{% block body %}
+<form class="form-horizontal" method="post" enctype="multipart/form-data">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <input class="form-control" type="submit" value="Сохранить изменения">
+</form>
+<button>
+    <a href="{% url 'admin:users:read' %}">
+        Назад - К списку пользователей
+    </a>
+</button>
+{% endblock body %}

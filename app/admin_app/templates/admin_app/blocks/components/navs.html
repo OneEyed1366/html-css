@@ -1,0 +1,10 @@
+<nav class="admin__nav">
+    <ul class="menu">
+        <li class="menu__item">
+            <a class="menu__link {% if 'users' in request.path %} active {% endif %}" href="{% url 'admin:users:read' %}">Пользователи</a>
+        </li>
+        <li class="menu__item">
+            <a class="menu__link {% if 'categories' in request.path %} active {% endif %}" href="{% url 'admin:categories:read' %}">Группы товаров</a>
+        </li>
+    </ul>
+</nav>

@@ -1,0 +1,41 @@
+{
+  "name": "geeks",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "config": {
+    "JSX_IN": "app/orders_app/static/orders_app/jsx",
+    "JSX_OUT": "app/orders_app/static/orders_app/js"
+  },
+  "scripts": {
+    "start": "concurrently \"cd gulp && gulp watch\" \"npx babel --watch %npm_package_config_JSX_IN% --out-dir %npm_package_config_JSX_OUT% --presets react-app/prod\"",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/OneEyed1366/Geeks.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/OneEyed1366/Geeks/issues"
+  },
+  "homepage": "https://github.com/OneEyed1366/Geeks#readme",
+  "devDependencies": {
+    "concurrently": "^6.2.0",
+    "gulp": "^4.0.2",
+    "gulp-autoprefixer": "^8.0.0",
+    "gulp-clean-css": "^4.3.0",
+    "gulp-concat": "^2.6.1",
+    "gulp-flatmap": "^1.0.2",
+    "gulp-path-resolver": "0.0.1",
+    "gulp-rename": "^2.0.0",
+    "gulp-sass": "^5.0.0",
+    "gulp-sourcemaps": "^3.0.0"
+  },
+  "dependencies": {
+    "babel-cli": "^6.26.0",
+    "babel-preset-react-app": "^3.1.2",
+    "node-sass": "^6.0.1"
+  }
+}

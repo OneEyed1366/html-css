@@ -1,0 +1,57 @@
+<a href="/" class="logo"></a>
+<ul class="menu">
+    <li>
+        {% if user.is_authenticated %}
+            {% if user.is_superuser %}
+                <a href="{% url 'admin:index' %}">Админ.панель</a>
+            {% endif %}
+            <a href="{% url 'auth:logout' %}">Выйти</a>
+        {% else %}
+            <a href="{% url 'auth:login' %}">Войти</a>
+        {% endif %}
+    </li>
+    {% if user.is_authenticated %}
+    <li aria-haspopup="true">
+        <div class="dropdown">
+            <a>
+                {{ user.first_name|default:'Пользователь' }}
+            </a>
+            <ul class="dropdown-menu" area-label="submenu">
+                <li>
+                    <a href="{% url 'auth:edit' %}">
+                        профиль
+                    </a>
+                </li>
+                <li>
+                    <a href="/cart"
+                        class="{% if request.path == '/cart' %} active {% endif %}"
+                    >
+                        Корзина: {{ data |default:'пусто' }}
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </li>
+    {% endif %}
+    <li>
+        <a href="/"
+            class="{% if request.path == '/' %} active {% endif %}"
+        >
+            домой
+        </a>
+    </li>
+    <li>
+        <a href="products"
+            class="{% if 'product' in request.path %} active {% endif %}"
+        >
+            продукты
+        </a>
+    </li>
+    <li>
+        <a href="contact"
+            class="{% if request.path == '/contact' %} active {% endif %}"
+        >
+            контакты
+        </a>
+    </li>
+</ul>

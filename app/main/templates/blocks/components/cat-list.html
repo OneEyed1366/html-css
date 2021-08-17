@@ -1,0 +1,10 @@
+<ul class="links-menu">
+    <li>
+        <a href="/products" class="{% if request.path == '/products' %} active {% endif %}">Все</a>
+        {% for data in datas %}
+        <a href="/products/{{ data.slug }}"
+            class="{% if data.slug in request.path %} active {% endif %}"
+        >{{ data.name }}</a>
+        {% endfor %}
+    </li>
+</ul>

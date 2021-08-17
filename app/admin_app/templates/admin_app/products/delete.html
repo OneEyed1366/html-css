@@ -1,0 +1,25 @@
+{% extends 'admin_app/blocks/base.html' %}
+{% load static %}
+
+{% block body %}
+<div class="dashboard__item">
+    <div class="card">
+        Уверены, что хотите удалить {{ to_delete.title }} 
+        {% if to_delete.category.name %}
+                ({{ to_delete.category.name|title }})</b>
+        {% endif %}
+        ?
+    </div>
+    <div class="card">
+        <form action="{% url 'admin:products:delete' pk=pk %}" method="post">
+            {% csrf_token %}
+            <input type="submit" value="Удалить">
+        </form>
+        <button>
+            <a href="{% url 'admin:products:index' pk=product.category.id %}">
+                Отменить удаление
+            </a>
+        </button>
+    </div>
+</div>
+{% endblock body %}

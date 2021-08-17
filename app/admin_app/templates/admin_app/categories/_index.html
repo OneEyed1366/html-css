@@ -1,0 +1,42 @@
+{% extends 'admin_app/blocks/base.html' %}
+{% load static %}
+
+{% block body %}
+<div class="dashboard">
+    <div class="dashboard__item">
+        <div class="card">
+            <a href="{% url 'admin:categories:create' %}">
+                Создать категорию
+            </a>
+        </div>
+    </div>
+    {% for data in datas %}
+    <div class="dashboard__item">
+        <div class="card">
+            <strong>
+                {{ data.name }}
+            </strong>
+        </div>
+        <div class="card">
+            <strong>Статус: </strong>
+            {% if not data.is_active %}
+                Не активна
+            {% else %}
+                Активна
+            {% endif %}
+        </div>
+        <div class="card">
+            <button>
+                <a href="{% url 'admin:products:index' pk=data.pk %}">Просмотреть товары</a>
+            </button>
+            <button>
+                <a href="{% url 'admin:categories:update' pk=data.pk %}">Редактировать категорию</a>
+            </button>
+            <button>
+                <a href="{% url 'admin:categories:delete' pk=data.pk %}">Удалить категорию</a>
+            </button>
+        </div>
+    </div>
+    {% endfor %}
+</div>
+{% endblock body %}

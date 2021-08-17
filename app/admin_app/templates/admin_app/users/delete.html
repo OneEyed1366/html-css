@@ -1,0 +1,25 @@
+{% extends 'admin_app/blocks/base.html' %}
+{% load static %}
+
+{% block body %}
+<div class="dashboard__item">
+    <div class="card">
+        Уверены, что хотите удалить {{ user_to_delete.username }} 
+        {% if user_to_delete.first_name %}
+                ({{ user_to_delete.first_name|title }})</b>
+        {% endif %}
+        ?
+    </div>
+    <div class="card">
+        <form action="{% url 'admin:users:delete' pk=user_to_delete.pk %}" method="post">
+            {% csrf_token %}
+            <input type="submit" value="Удалить">
+        </form>
+        <button>
+            <a href="{% url 'admin:users:read' %}">
+                Отменить удаление
+            </a>
+        </button>
+    </div>
+</div>
+{% endblock body %}

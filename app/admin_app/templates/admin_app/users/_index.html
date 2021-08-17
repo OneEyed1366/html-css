@@ -1,0 +1,66 @@
+{% extends 'admin_app/blocks/base.html' %}
+{% load static %}
+
+{% block body %}
+<div class="dashboard">
+    <div class="dashboard__item">
+        <div class="card">
+            <a href="{% url 'admin:users:create' %}">
+                Создать пользователя
+            </a>
+        </div>
+    </div>
+    {% for data in object_list %}
+    <div class="dashboard__item">
+        {% if data.avatar %}
+        <div class="card">
+            <img src="{{ data.avatar.url }}" alt="{{ data.username }}">
+        </div>
+        {% endif %}
+        <div class="card">
+            <strong>Статус: </strong>
+            {% if not data.is_active %}
+                Не активен
+            {% else %}
+                Активен
+            {% endif %}
+        </div>
+        <div class="card">
+            <strong>
+                {% if data.is_superuser %}
+                    Администратор
+                {% else %}
+                    Пользователь
+                {% endif %}
+            </strong>
+            {{ data.username }}
+            ({{ data.first_name }}, возраст: {{ data.age }})
+        </div>
+        <div class="card">
+            <strong>
+                Последний вход:
+            </strong>
+            {{ data.last_login }}
+        </div>
+        <div class="card">
+            <strong>
+                E-mail:
+            </strong>
+            <a href="mailto:{{ data.email }}">{{ data.email }}</a>
+        </div>
+        <div class="card">
+            <button>
+                <a href="{% url 'admin:users:update' pk=data.pk %}">
+                редактировать
+                </a>
+            </button>
+            <button>
+                <a href="{% url 'admin:users:delete' pk=data.pk %}">
+                удалить
+                </a>
+            </button>
+        </div>
+    </div>
+    {% endfor %}
+</div>
+{% endblock body %}
